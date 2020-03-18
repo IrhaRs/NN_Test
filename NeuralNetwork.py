@@ -12,7 +12,7 @@ def translate_random(n):
 
 class NeuralNetwork:
     def __init__(self, input_nodes, hidden_nodes, output_nodes):
-        np.random.seed(123)
+        
         
         #amount of nodes.
         self.input_nodes = input_nodes
@@ -83,7 +83,7 @@ class NeuralNetwork:
 
         #calculate deltas
         hidden_T = hidden.T
-        weight_ho_deltas = np.dot(gradients, hidden_T)
+        weight_ho_deltas = np.multiply(gradients, hidden_T)
 
         #adjust the weights by deltas
         self.weights_ho = np.add(self.weights_ho, weight_ho_deltas)
